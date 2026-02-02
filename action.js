@@ -1,5 +1,3 @@
-const noButton = document.querySelector(".no-button");
-
 const messages = [
     "Excuse you!!! Why would you click that?",
     "Are you sure? Think again!",
@@ -10,12 +8,17 @@ const messages = [
 
 let clickCount = 0;
 
-noButton.addEventListener("click", function(e) {
-    if (clickCount < messages.length) {
-        alert(messages[clickCount]);
-        clickCount++;
-    } else {
-        alert("Fine, I'll stop asking... but the answer should still be Yes!");
+document.addEventListener("DOMContentLoaded", function() {
+    const noButton = document.querySelector(".no-button");
+    if (noButton) {
+        noButton.addEventListener("click", function(e) {
+            if (clickCount < messages.length) {
+                alert(messages[clickCount]);
+                clickCount++;
+            } else {
+                alert("Fine, I'll stop asking... but the answer should still be Yes!");
+            }
+        });
     }
 });
 
